@@ -1,0 +1,117 @@
+body {
+    background-color: #ffebee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.envelope-wrapper {
+    cursor: pointer;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f44336;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.5s;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #d32f2f;
+    z-index: 3;
+    transition: 0.5s;
+    transform-origin: top;
+}
+
+.pocket {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+    background-color: #e53935;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+
+.letter {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 280px;
+    height: 180px;
+    background-color: white;
+    z-index: 1;
+    transition: 0.5s;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffcdd2;
+}
+
+
+.wa-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #25d366; /* Warna khas WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0; /* Mulanya tidak terlihat */
+    transition: 0.5s;
+}
+
+/* Tombol akan muncul saat amplop dibuka */
+.envelope.open .wa-btn {
+    opacity: 1;
+    transition-delay: 1.5s; /* Muncul setelah teks selesai mengetik */
+}
+
+.wa-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+/* Animasi Buka */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-120px);
+    height: 250px;
+    z-index: 4;
+}
+
+.instruction {
+    margin-top: 50px;
+    color: #c62828;
+    font-weight: bold;
+    text-align: center;
+}
